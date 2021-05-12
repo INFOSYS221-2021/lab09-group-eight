@@ -15,26 +15,26 @@ Exercise 1 <br>
   
  Exercise 2 <br>
 >
->// Initialise the values at the start of the game
->// Do not change this part!
->let thisDeck;
->let numOfHits = 0;
->let sum = 0;
+> // Initialise the values at the start of the game
+> // Do not change this part!
+> let thisDeck;
+> let numOfHits = 0;
+> let sum = 0;
 >
->// Getting different elements from HTML
->// Do not change this part!
->const hitMeBtn = document.getElementById('hitMeBtn');
->const restartBtn = document.getElementById('restartBtn');
->const hitMeSum = document.getElementById('hitMeSum');
->const hitMeCards = document.getElementById('hitMeCards');
->hitMeBtn.addEventListener('click', playGame);
->restartBtn.addEventListener('click', restartGame);
+> // Getting different elements from HTML
+> // Do not change this part!
+> const hitMeBtn = document.getElementById('hitMeBtn');
+> const restartBtn = document.getElementById('restartBtn');
+> const hitMeSum = document.getElementById('hitMeSum');
+> const hitMeCards = document.getElementById('hitMeCards');
+> hitMeBtn.addEventListener('click', playGame);
+> restartBtn.addEventListener('click', restartGame);
+> 
+> // Complete the following TODOs for each function
 >
->// Complete the following TODOs for each function
->
->// This function shuffles a new deck of card
->// and returns the deck id
->async function createDeck() {
+> // This function shuffles a new deck of card
+> // and returns the deck id
+> async function createDeck() {
 >  // TODO 1: use the appropriate API to shuffle 
 >  // a new deck of card
 >  let response = await fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
@@ -46,11 +46,11 @@ Exercise 1 <br>
 >    deckID = data.deck_id;
 >    return deckID;
 >  }
->}
+> }
 >
->// This function returns all available information
->// about a card drawn from the deck created
->async function getACard() {
+> // This function returns all available information
+> // about a card drawn from the deck created
+> async function getACard() {
 >  // TODO 3: use the appropriate API to draw one card 
 >  // from the deck created at the start of the game
 >  // Hint: use the variable thisDeck
@@ -62,11 +62,11 @@ Exercise 1 <br>
 >    let cardInfo = await response.json();
 >    return cardInfo;
 >  }
->}
+> }
 >
->// This function returns the appropriate value
->// based on cardInfo
->function getValueFromCard(cardInfo) {
+> // This function returns the appropriate value
+> // based on cardInfo
+> function getValueFromCard(cardInfo) {
 >  // TODO 4: find the value and suit of the card
 >  let cardValue = cardInfo.cards[0].value;
 >  let cardSuit = cardInfo.cards[0].suit;
@@ -94,11 +94,11 @@ Exercise 1 <br>
 >  }
 >  
 >  return cardValue * posOrNeg;
->}
+> }
 >
->// This function gets the image from cardInfo
->// and updates the HTML
->function updateCardImg(cardInfo) {
+> // This function gets the image from cardInfo
+> // and updates the HTML
+> function updateCardImg(cardInfo) {
 >    // TODO 6: find the image of the card
 >    console.log(cardInfo);
 >  let imgUrl = cardInfo.cards[0].image;
@@ -106,11 +106,11 @@ Exercise 1 <br>
 >  
 >  // update HTML. Do not change this.
 >  hitMeCards.innerHTML += "<img src='" + imgUrl + "' width='100' />";
->}
+> }
 >
->// This function controls the flow of the game
->// Do not change this function!
->async function playGame() {
+> // This function controls the flow of the game
+> // Do not change this function!
+> async function playGame() {
 >  // get a new deck of card if we just start the game
 >  if (numOfHits === 0) {
 >    thisDeck = await createDeck();
